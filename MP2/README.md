@@ -25,7 +25,7 @@ HTTP POST "/" with JSON body {"num": 100} where 100 can be any integer.
 Your program should update the seed value with the given number.
 
 HTTP GET "/"
-
+ 
 Your program should return the integer seed value in string format. The response body for the above case will be: "100"
 
 The web application will run on a specific port and be deployed in both EC2 instances. 
