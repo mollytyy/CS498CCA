@@ -10,5 +10,5 @@ for line in sys.stdin:
        
 sorted_words = sorted(words.items(), key=lambda x: x[1])
 
-for w in sorted_words[-5:]:
+for w in sorted_words[-10:]:
     print('%s\t%s' % (w[0], w[1]))
