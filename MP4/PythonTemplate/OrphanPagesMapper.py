@@ -3,6 +3,12 @@ import sys
 
 
 for line in sys.stdin:
-  # TODO
-  
-  # print('%s\t%s' % (  ,  )) pass this output to reducer
+    page, links = line.strip().split(':')
+    links = links.split()
+    
+    if len(links) > 0:
+        print('%s\t0'%page)
+        
+        for link in links:
+            if link != page:
+                print('%s\t1'%link)

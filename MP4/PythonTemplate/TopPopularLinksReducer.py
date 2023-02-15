@@ -2,8 +2,13 @@
 import sys
 
 
+links_dict = {}
 
-# input comes from STDIN
 for line in sys.stdin:
-    # TODO
-    # print('%s\t%s' % (  ,  )) print as final output
+    link, count = line.strip().split('\t')
+    links_dict[int(link)] = links_dict.get(link, 0) + int(count)
+    
+sorted_links = sorted(links_dict.items(), key=lambda x: x[1])
+
+for (l, c) in sorted_links[-10:]:
+    print('%s\t%s' %(l, c))

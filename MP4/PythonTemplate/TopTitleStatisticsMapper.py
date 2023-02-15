@@ -3,6 +3,6 @@ import sys
 
 
 for line in sys.stdin:
-    # TODO
-    
-    # print('%s\t%s' % (  ,  )) pass this output to reducer
+    word, value = line.strip().split('\t')
+    if int(value) > 0:
+        print(int(value))

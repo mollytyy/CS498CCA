@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import sys
 
-#TODO
+
+links_count = {}
 
 # input comes from STDIN
 for line in sys.stdin:
-    # TODO
+    line, count = line.strip().split('\t')
+    links_count[line] = links_count.get(line, 0) + int(count)
 
-# TODO
-# print('%s\t%s' % (  ,  )) print as final output
+for l in links_count:
+    if links_count[l]:
+        print('%s\t%s' % (l , links_count[l]))
