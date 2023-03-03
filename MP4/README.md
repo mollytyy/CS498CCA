@@ -13,10 +13,10 @@ When selecting the top N items in a list, sorting is necessary. Use the followin
 ## Python submission
 
 **If you choose to do this assignment in Java, skip this part and go to the "Java submission" part above
-1. Requirements
+##### Requirements
 
 This assignment will be graded based on Python 3.6.
-2. Procedures
+##### Procedures
 
 Step 1: Run the provided Docker image (please follow "Tutorial: Docker installation").
 
