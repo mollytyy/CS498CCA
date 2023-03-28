@@ -6,7 +6,7 @@ url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp-9"
 
 student = {
     "submitterEmail": "tyy2@illinois.edu",  # <Your coursera account email>
-    "secret": "tpLy4VM6SSV0hX23"  # <Your secret token from coursera>
+    "secret": "CNKG27EfBUxVTOML"  # <Your secret token from coursera>
 }
 
 # <The count of the filtered entries from 3.3 SQL query 1>
@@ -14,9 +14,12 @@ sql1_numFilteredEntries = 189
 # <The count of the filtered entries from 3.3 SQL query 2>
 sql2_numFilteredEntries = 1277
 
-viz0CsvPath = ""  # <Filepath for your tableau viz0 csv/tsv file>
-viz1CsvPath = ""  # <Filepath for your tableau viz1 csv/tsv file>
-viz2CsvPath = ""  # <Filepath for your tableau viz2 csv/tsv file>
+# <Filepath for your tableau viz0 csv/tsv file>
+viz0CsvPath = r"C:\Users\moty0\CS498CCA\MP9\mp9-viz0.csv"
+# <Filepath for your tableau viz1 csv/tsv file>
+viz1CsvPath = r"C:\Users\moty0\CS498CCA\MP9\mp9-viz1.csv"
+# <Filepath for your tableau viz2 csv/tsv file>
+viz2CsvPath = r"C:\Users\moty0\CS498CCA\MP9\mp9-viz2.csv"
 
 # The column ordering in the tsv file may not be preserved when you export the data.
 # Therefore, please check and modify the respective column index below
@@ -36,14 +39,14 @@ def readViz0(filePath, destAirportColumn, countAirlineColumn, latitudeColumn, lo
 
     with open(filePath, encoding="utf8", errors='ignore') as csvfile:
         reader = csv.reader((line.replace('\0', '')
-                            for line in csvfile), delimiter='\t')
+                            for line in csvfile), delimiter=',')
         header = reader.__next__()
 
         for row in reader:
             if len(row) == 4:
                 vizData[row[destAirportColumn]] = [str(row[countAirlineColumn]), str(
                     row[latitudeColumn]), str(row[longitudeColumn])]
-
+    print(vizData)
     return vizData
 
 
@@ -53,7 +56,7 @@ def readViz12(filePath, keyColumn):
 
     with open(filePath, encoding="utf8", errors='ignore') as csvfile:
         reader = csv.reader((line.replace('\0', '')
-                            for line in csvfile), delimiter='\t')
+                            for line in csvfile), delimiter=',')
         header = reader.__next__()
 
         for row in reader:
@@ -70,10 +73,10 @@ def sendToAutograder(payload):
 
 
 def main():
-    # readViz0(viz0CsvPath, viz0DestAirportColumn, viz0CountAirlineColumn, viz0LatitudeColumn, viz0LongitudeColumn)
-    viz0Data = {}
-    viz1Data = {}  # readViz12(viz1CsvPath, viz1StopOverColumn)
-    viz2Data = {}  # readViz12(viz2CsvPath, viz2ArrivalDelayColumn)
+    viz0Data = readViz0(viz0CsvPath, viz0DestAirportColumn,
+                        viz0CountAirlineColumn, viz0LatitudeColumn, viz0LongitudeColumn)
+    viz1Data = readViz12(viz1CsvPath, viz1StopOverColumn)
+    viz2Data = readViz12(viz2CsvPath, viz2ArrivalDelayColumn)
 
     payload = {}
     payload['student'] = student
