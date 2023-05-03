@@ -5,7 +5,7 @@ metadata:
   namespace: free-service
 spec:
   hard:
-    requests.cpu: "0.9"
+    requests.cpu: "2"
     requests.memory: 1Gi
-    limits.cpu: "0.9"
+    limits.cpu: "2"
     limits.memory: 1Gi
