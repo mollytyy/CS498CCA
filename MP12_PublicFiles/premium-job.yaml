@@ -1,8 +1,8 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: premium
-  # generateName: premium-
+  # name: premium
+  generateName: premium-
   namespace: default
 spec:
   template:

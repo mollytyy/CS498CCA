@@ -1,8 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: free
-  # generateName: free-
+  generateName: free-
   namespace: free-service
 spec:
   template:
@@ -10,6 +9,10 @@ spec:
       containers:
       - name: dockerimg
         image: mollyy/mp12_image
+        resources:
+          limits:
+            cpu: "0.9"
+            memory: "1Gi"
         env:
           - name: DATASET
             value: "mnist"
