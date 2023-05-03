@@ -12,8 +12,8 @@ spec:
         image: mollyy/mp12_image
         env:
           - name: DATASET
-            value: "mnist"
+            value: "kmnist"
           - name: TYPE
-            value : "ff"
+            value : "cnn"
       restartPolicy: Never
   backoffLimit: 4
