@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: premium
+  # generateName: premium-
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: dockerimg
+        image: mollyy/mp12_image
+        env:
+          - name: DATASET
+            value: "mnist"
+          - name: TYPE
+            value : "ff"
+      restartPolicy: Never
+  backoffLimit: 4
