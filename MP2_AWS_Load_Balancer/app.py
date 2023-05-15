@@ -12,10 +12,10 @@ def main():
         new_seed = request.get_json()
         seed = new_seed["num"]
         d['num'] = new_seed["num"]
-        return d
+        return str(d['num'])
     else:
         d['num'] = seed
-        return d
+        return str(d['num'])
 
 
 if __name__ == '__main__':
